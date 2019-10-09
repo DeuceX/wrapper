@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import helpers from './../axios/axios-wrap';
 import './home.css';
 
 class Home extends React.Component {
-    constructor(props : any) {
+    constructor(props: any) {
         super(props);
         this.state = {
             url: "",
@@ -13,7 +14,7 @@ class Home extends React.Component {
     }
 
     getUserInfo = () => {
-        console.log(this.state);
+        helpers.login(this.state);
     }
 
     getUserInfoByEnter = (e: any) => {
@@ -23,11 +24,11 @@ class Home extends React.Component {
     }
 
     render() {
-        
+
         return <div>
             <div className="game-info">
                 <p>Game URL:</p>
-                <input className="game-url" type="text" onChange={e => this.setState({ url: e.target.value}) }
+                <input className="game-url" type="text" onChange={e => this.setState({ url: e.target.value })}
                     placeholder="Example: http://quest.ua/GameDetails.aspx?gid=65890" />
             </div>
             <div className="user-info">
