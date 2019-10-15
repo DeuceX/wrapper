@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import helpers from './../axios/axios-wrap';
 import './home.css';
+import { Redirect } from 'react-router'
 
 class Home extends React.Component {
     constructor(props: any) {
@@ -13,8 +14,12 @@ class Home extends React.Component {
         }
     }
 
-    getUserInfo = () => {
-        helpers.login(this.state);
+    getUserInfo = async () => {
+        var result = await helpers.login(this.state);
+
+        if (result.status === 200) {
+            window.location.href = '/counter';
+        }
     }
 
     getUserInfoByEnter = (e: any) => {
