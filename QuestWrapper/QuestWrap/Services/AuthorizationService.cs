@@ -11,7 +11,7 @@ namespace QuestWrap.Services
     {
         public async Task<AuthorizationResult> Authorize(AuthorizationInfo authInfo)
         {
-            authInfo.GameUrl = "http://demo.en.cx/GameDetails.aspx?gid=30059";
+            authInfo.GameUrl = "http://demo.en.cx/GameDetails.aspx?gid=30097";
             authInfo.Login = "stgr2";
             authInfo.Password = "password321";
 

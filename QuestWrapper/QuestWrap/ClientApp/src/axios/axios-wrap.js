@@ -59,7 +59,7 @@ var helpers = {
             });
         });
     },
-    getLevel: function (authInfo) {
+    getLevelInfo: function () {
         return __awaiter(this, void 0, void 0, function () {
             var headers, result;
             return __generator(this, function (_a) {
@@ -68,11 +68,7 @@ var helpers = {
                         headers = {
                             'Content-Type': 'application/json'
                         };
-                        return [4 /*yield*/, axios_1.default.post("https://localhost:44304/authorization/authorize/", {
-                                GameUrl: authInfo.url,
-                                Login: authInfo.login,
-                                Password: authInfo.password
-                            }, { headers: headers })];
+                        return [4 /*yield*/, axios_1.default.get("https://localhost:44304/game/currentlevel/", { headers: headers })];
                     case 1:
                         result = _a.sent();
                         return [2 /*return*/, result];
