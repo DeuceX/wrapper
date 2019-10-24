@@ -1,14 +1,6 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
-import { ApplicationState } from '../store';
-import * as CounterStore from '../store/Counter';
 import helpers from './../axios/axios-wrap';
-
-type CounterProps =
-    CounterStore.CounterState &
-    typeof CounterStore.actionCreators &
-    RouteComponentProps<{}>;
 
 interface IMyComponentState {
     data: any
@@ -16,7 +8,7 @@ interface IMyComponentState {
 
 interface IMyComponentProps {}
 
-class Counter extends React.Component<IMyComponentProps, IMyComponentState> {
+class GameLevel extends React.Component<IMyComponentProps, IMyComponentState> {
     constructor(props : any) {
         super(props);
         this.state = { data: {} };
@@ -32,7 +24,7 @@ class Counter extends React.Component<IMyComponentProps, IMyComponentState> {
     render() {
         return (
             <div>
-                <div className="level-title">Уровень 1из 20: Название</div>
+                <div className="level-title">Уровень 1 из 20: Название</div>
                 <div className="level-text">Текст задания</div>
                 <div className="level-hints">Подсказки</div>
                 <div className="level-bonuses">Бонусы</div>
@@ -49,7 +41,4 @@ class Counter extends React.Component<IMyComponentProps, IMyComponentState> {
     }
 };
 
-export default connect(
-    (state: ApplicationState) => state.counter,
-    CounterStore.actionCreators
-)(Counter);
+export default connect()(GameLevel);
